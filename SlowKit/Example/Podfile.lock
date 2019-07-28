@@ -1,0 +1,16 @@
+PODS:
+  - SlowKit (0.0.1)
+
+DEPENDENCIES:
+  - SlowKit (from `../../`)
+
+EXTERNAL SOURCES:
+  SlowKit:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  SlowKit: f110ce8b02ddb4700b13e6626c741fb456d12be5
+
+PODFILE CHECKSUM: 97b23291d89e53ea392d119238bcdd8c8a3b9eb9
+
+COCOAPODS: 1.6.1
