@@ -33,6 +33,7 @@
 		0F3B96E422ECC86100D65D6C /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96E322ECC86100D65D6C /* HomeService.swift */; };
 		0F3B96E622ECC8F700D65D6C /* IHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96E522ECC8F700D65D6C /* IHomeService.swift */; };
 		0F3B96E822ECC9A300D65D6C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96E722ECC9A300D65D6C /* HomeView.swift */; };
+		0F3B970922ED605E00D65D6C /* ContainerExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B970822ED605E00D65D6C /* ContainerExamples.swift */; };
 		5A3E409AFC0FBC6C095C94F2 /* Pods_SlowKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170BDD9717E6335B5C4A324C /* Pods_SlowKitTests.framework */; };
 		699BE66F2E46DA106C00DA24 /* Pods_HelloSlowKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384883BD8BB800545E846B54 /* Pods_HelloSlowKit.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		0F3B96E322ECC86100D65D6C /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		0F3B96E522ECC8F700D65D6C /* IHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IHomeService.swift; sourceTree = "<group>"; };
 		0F3B96E722ECC9A300D65D6C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0F3B970822ED605E00D65D6C /* ContainerExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerExamples.swift; path = SlowKitTests/Container/ContainerExamples.swift; sourceTree = SOURCE_ROOT; };
 		170BDD9717E6335B5C4A324C /* Pods_SlowKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlowKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20320680BBD624AEFA3E7138 /* Pods-SlowKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlowKitTests.release.xcconfig"; path = "Target Support Files/Pods-SlowKitTests/Pods-SlowKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		384883BD8BB800545E846B54 /* Pods_HelloSlowKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloSlowKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				0F3B96BB22ECC4FB00D65D6C /* Mocks */,
+				0F3B970822ED605E00D65D6C /* ContainerExamples.swift */,
 				0F3B96BE22ECC4FB00D65D6C /* ContainerTests.Events.swift */,
 				0F3B96BF22ECC4FB00D65D6C /* ContainerTests.SimpleResolve.swift */,
 				0F3B96C022ECC4FB00D65D6C /* ContainerTests.ResolveByName.swift */,
@@ -466,6 +469,7 @@
 				0F3B96DD22ECC4FB00D65D6C /* NotificationServiceTests.swift in Sources */,
 				0F3B96CF22ECC4FB00D65D6C /* ContainerTestData.swift in Sources */,
 				0F3B96D422ECC4FB00D65D6C /* ContainerTests.RegisterAs.swift in Sources */,
+				0F3B970922ED605E00D65D6C /* ContainerExamples.swift in Sources */,
 				0F3B96D922ECC4FB00D65D6C /* MVVMTestData.swift in Sources */,
 				0F3B96D622ECC4FB00D65D6C /* ContainerTests.ContainsAndUnregister.swift in Sources */,
 				0F3B96D722ECC4FB00D65D6C /* ContainerTests.Shortcuts.swift in Sources */,
