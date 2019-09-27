@@ -17,5 +17,5 @@ s.source = {
 :git => 'https://github.com/volokhin/SlowKit.git',
 :tag => "#{s.version}" }
 s.framework = "UIKit"
-s.source_files = 'SlowKit/SlowKit/**/*'
+s.source_files = 'SlowKit/SlowKit/**/*.{swift}'
 end

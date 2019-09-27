@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 public protocol IDataSource {
 	var count: Int { get }

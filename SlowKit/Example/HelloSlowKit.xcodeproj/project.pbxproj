@@ -11,42 +11,13 @@
 		0F3B962D22ECBBE400D65D6C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B962C22ECBBE400D65D6C /* HomeVC.swift */; };
 		0F3B963222ECBBE500D65D6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B963122ECBBE500D65D6C /* Assets.xcassets */; };
 		0F3B963522ECBBE500D65D6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B963322ECBBE500D65D6C /* LaunchScreen.storyboard */; };
-		0F3B96CD22ECC4FB00D65D6C /* AssociatedObjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96B822ECC4FB00D65D6C /* AssociatedObjectsTests.swift */; };
-		0F3B96CE22ECC4FB00D65D6C /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96B922ECC4FB00D65D6C /* EventTests.swift */; };
-		0F3B96CF22ECC4FB00D65D6C /* ContainerTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96BC22ECC4FB00D65D6C /* ContainerTestData.swift */; };
-		0F3B96D022ECC4FB00D65D6C /* LogMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96BD22ECC4FB00D65D6C /* LogMock.swift */; };
-		0F3B96D122ECC4FB00D65D6C /* ContainerTests.Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96BE22ECC4FB00D65D6C /* ContainerTests.Events.swift */; };
-		0F3B96D222ECC4FB00D65D6C /* ContainerTests.SimpleResolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96BF22ECC4FB00D65D6C /* ContainerTests.SimpleResolve.swift */; };
-		0F3B96D322ECC4FB00D65D6C /* ContainerTests.ResolveByName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96C022ECC4FB00D65D6C /* ContainerTests.ResolveByName.swift */; };
-		0F3B96D422ECC4FB00D65D6C /* ContainerTests.RegisterAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96C122ECC4FB00D65D6C /* ContainerTests.RegisterAs.swift */; };
-		0F3B96D522ECC4FB00D65D6C /* ContainerTests.Loging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96C222ECC4FB00D65D6C /* ContainerTests.Loging.swift */; };
-		0F3B96D622ECC4FB00D65D6C /* ContainerTests.ContainsAndUnregister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96C322ECC4FB00D65D6C /* ContainerTests.ContainsAndUnregister.swift */; };
-		0F3B96D722ECC4FB00D65D6C /* ContainerTests.Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96C422ECC4FB00D65D6C /* ContainerTests.Shortcuts.swift */; };
-		0F3B96D822ECC4FB00D65D6C /* ContainerTests.Retaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96C522ECC4FB00D65D6C /* ContainerTests.Retaining.swift */; };
-		0F3B96D922ECC4FB00D65D6C /* MVVMTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96C822ECC4FB00D65D6C /* MVVMTestData.swift */; };
-		0F3B96DA22ECC4FB00D65D6C /* CommandsTests.UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96C922ECC4FB00D65D6C /* CommandsTests.UISegmentedControl.swift */; };
-		0F3B96DB22ECC4FB00D65D6C /* CommandsTests.UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96CA22ECC4FB00D65D6C /* CommandsTests.UIButton.swift */; };
-		0F3B96DC22ECC4FB00D65D6C /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96CB22ECC4FB00D65D6C /* ViewControllerTests.swift */; };
-		0F3B96DD22ECC4FB00D65D6C /* NotificationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96CC22ECC4FB00D65D6C /* NotificationServiceTests.swift */; };
 		0F3B96DF22ECC6FB00D65D6C /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96DE22ECC6FB00D65D6C /* HomeVM.swift */; };
 		0F3B96E122ECC83F00D65D6C /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B96E022ECC83F00D65D6C /* HomeView.xib */; };
 		0F3B96E422ECC86100D65D6C /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96E322ECC86100D65D6C /* HomeService.swift */; };
 		0F3B96E622ECC8F700D65D6C /* IHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96E522ECC8F700D65D6C /* IHomeService.swift */; };
 		0F3B96E822ECC9A300D65D6C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B96E722ECC9A300D65D6C /* HomeView.swift */; };
-		0F3B970922ED605E00D65D6C /* ContainerExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B970822ED605E00D65D6C /* ContainerExamples.swift */; };
-		5A3E409AFC0FBC6C095C94F2 /* Pods_SlowKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170BDD9717E6335B5C4A324C /* Pods_SlowKitTests.framework */; };
 		699BE66F2E46DA106C00DA24 /* Pods_HelloSlowKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384883BD8BB800545E846B54 /* Pods_HelloSlowKit.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0F3B96B222ECC4D000D65D6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F3B961F22ECBBE400D65D6C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0F3B962622ECBBE400D65D6C;
-			remoteInfo = HelloSlowKit;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0F3B962722ECBBE400D65D6C /* HelloSlowKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloSlowKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,31 +26,11 @@
 		0F3B963122ECBBE500D65D6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F3B963422ECBBE500D65D6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F3B963622ECBBE500D65D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F3B96AD22ECC4D000D65D6C /* SlowKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlowKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F3B96B122ECC4D000D65D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F3B96B822ECC4FB00D65D6C /* AssociatedObjectsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObjectsTests.swift; sourceTree = "<group>"; };
-		0F3B96B922ECC4FB00D65D6C /* EventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
-		0F3B96BC22ECC4FB00D65D6C /* ContainerTestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTestData.swift; sourceTree = "<group>"; };
-		0F3B96BD22ECC4FB00D65D6C /* LogMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMock.swift; sourceTree = "<group>"; };
-		0F3B96BE22ECC4FB00D65D6C /* ContainerTests.Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTests.Events.swift; sourceTree = "<group>"; };
-		0F3B96BF22ECC4FB00D65D6C /* ContainerTests.SimpleResolve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTests.SimpleResolve.swift; sourceTree = "<group>"; };
-		0F3B96C022ECC4FB00D65D6C /* ContainerTests.ResolveByName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTests.ResolveByName.swift; sourceTree = "<group>"; };
-		0F3B96C122ECC4FB00D65D6C /* ContainerTests.RegisterAs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTests.RegisterAs.swift; sourceTree = "<group>"; };
-		0F3B96C222ECC4FB00D65D6C /* ContainerTests.Loging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTests.Loging.swift; sourceTree = "<group>"; };
-		0F3B96C322ECC4FB00D65D6C /* ContainerTests.ContainsAndUnregister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTests.ContainsAndUnregister.swift; sourceTree = "<group>"; };
-		0F3B96C422ECC4FB00D65D6C /* ContainerTests.Shortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTests.Shortcuts.swift; sourceTree = "<group>"; };
-		0F3B96C522ECC4FB00D65D6C /* ContainerTests.Retaining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTests.Retaining.swift; sourceTree = "<group>"; };
-		0F3B96C822ECC4FB00D65D6C /* MVVMTestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMTestData.swift; sourceTree = "<group>"; };
-		0F3B96C922ECC4FB00D65D6C /* CommandsTests.UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandsTests.UISegmentedControl.swift; sourceTree = "<group>"; };
-		0F3B96CA22ECC4FB00D65D6C /* CommandsTests.UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandsTests.UIButton.swift; sourceTree = "<group>"; };
-		0F3B96CB22ECC4FB00D65D6C /* ViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
-		0F3B96CC22ECC4FB00D65D6C /* NotificationServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationServiceTests.swift; sourceTree = "<group>"; };
 		0F3B96DE22ECC6FB00D65D6C /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0F3B96E022ECC83F00D65D6C /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		0F3B96E322ECC86100D65D6C /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		0F3B96E522ECC8F700D65D6C /* IHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IHomeService.swift; sourceTree = "<group>"; };
 		0F3B96E722ECC9A300D65D6C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		0F3B970822ED605E00D65D6C /* ContainerExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerExamples.swift; path = SlowKitTests/Container/ContainerExamples.swift; sourceTree = SOURCE_ROOT; };
 		170BDD9717E6335B5C4A324C /* Pods_SlowKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlowKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20320680BBD624AEFA3E7138 /* Pods-SlowKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlowKitTests.release.xcconfig"; path = "Target Support Files/Pods-SlowKitTests/Pods-SlowKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		384883BD8BB800545E846B54 /* Pods_HelloSlowKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloSlowKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,14 +48,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0F3B96AA22ECC4D000D65D6C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5A3E409AFC0FBC6C095C94F2 /* Pods_SlowKitTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -112,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				0F3B962922ECBBE400D65D6C /* HelloSlowKit */,
-				0F3B96AE22ECC4D000D65D6C /* SlowKitTests */,
 				0F3B962822ECBBE400D65D6C /* Products */,
 				8C00F7ACC177BD4A7517C6FF /* Pods */,
 				5453E0F825141E6D27D94762 /* Frameworks */,
@@ -123,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				0F3B962722ECBBE400D65D6C /* HelloSlowKit.app */,
-				0F3B96AD22ECC4D000D65D6C /* SlowKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,72 +80,6 @@
 				0F3B963622ECBBE500D65D6C /* Info.plist */,
 			);
 			path = HelloSlowKit;
-			sourceTree = "<group>";
-		};
-		0F3B96AE22ECC4D000D65D6C /* SlowKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				0F3B96B722ECC4FB00D65D6C /* Common */,
-				0F3B96BA22ECC4FB00D65D6C /* Container */,
-				0F3B96C622ECC4FB00D65D6C /* MVVM */,
-				0F3B96B122ECC4D000D65D6C /* Info.plist */,
-			);
-			path = SlowKitTests;
-			sourceTree = "<group>";
-		};
-		0F3B96B722ECC4FB00D65D6C /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				0F3B96B822ECC4FB00D65D6C /* AssociatedObjectsTests.swift */,
-				0F3B96B922ECC4FB00D65D6C /* EventTests.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		0F3B96BA22ECC4FB00D65D6C /* Container */ = {
-			isa = PBXGroup;
-			children = (
-				0F3B96BB22ECC4FB00D65D6C /* Mocks */,
-				0F3B970822ED605E00D65D6C /* ContainerExamples.swift */,
-				0F3B96BE22ECC4FB00D65D6C /* ContainerTests.Events.swift */,
-				0F3B96BF22ECC4FB00D65D6C /* ContainerTests.SimpleResolve.swift */,
-				0F3B96C022ECC4FB00D65D6C /* ContainerTests.ResolveByName.swift */,
-				0F3B96C122ECC4FB00D65D6C /* ContainerTests.RegisterAs.swift */,
-				0F3B96C222ECC4FB00D65D6C /* ContainerTests.Loging.swift */,
-				0F3B96C322ECC4FB00D65D6C /* ContainerTests.ContainsAndUnregister.swift */,
-				0F3B96C422ECC4FB00D65D6C /* ContainerTests.Shortcuts.swift */,
-				0F3B96C522ECC4FB00D65D6C /* ContainerTests.Retaining.swift */,
-			);
-			path = Container;
-			sourceTree = "<group>";
-		};
-		0F3B96BB22ECC4FB00D65D6C /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				0F3B96BC22ECC4FB00D65D6C /* ContainerTestData.swift */,
-				0F3B96BD22ECC4FB00D65D6C /* LogMock.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
-		0F3B96C622ECC4FB00D65D6C /* MVVM */ = {
-			isa = PBXGroup;
-			children = (
-				0F3B96C722ECC4FB00D65D6C /* TestData */,
-				0F3B96C922ECC4FB00D65D6C /* CommandsTests.UISegmentedControl.swift */,
-				0F3B96CA22ECC4FB00D65D6C /* CommandsTests.UIButton.swift */,
-				0F3B96CB22ECC4FB00D65D6C /* ViewControllerTests.swift */,
-				0F3B96CC22ECC4FB00D65D6C /* NotificationServiceTests.swift */,
-			);
-			path = MVVM;
-			sourceTree = "<group>";
-		};
-		0F3B96C722ECC4FB00D65D6C /* TestData */ = {
-			isa = PBXGroup;
-			children = (
-				0F3B96C822ECC4FB00D65D6C /* MVVMTestData.swift */,
-			);
-			path = TestData;
 			sourceTree = "<group>";
 		};
 		0F3B96E222ECC84400D65D6C /* Home */ = {
@@ -269,26 +144,6 @@
 			productReference = 0F3B962722ECBBE400D65D6C /* HelloSlowKit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0F3B96AC22ECC4D000D65D6C /* SlowKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0F3B96B422ECC4D000D65D6C /* Build configuration list for PBXNativeTarget "SlowKitTests" */;
-			buildPhases = (
-				6C34FD79CD34321D92D02163 /* [CP] Check Pods Manifest.lock */,
-				0F3B96A922ECC4D000D65D6C /* Sources */,
-				0F3B96AA22ECC4D000D65D6C /* Frameworks */,
-				0F3B96AB22ECC4D000D65D6C /* Resources */,
-				522545310BD6FF66171927D9 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0F3B96B322ECC4D000D65D6C /* PBXTargetDependency */,
-			);
-			name = SlowKitTests;
-			productName = SlowKitTests;
-			productReference = 0F3B96AD22ECC4D000D65D6C /* SlowKitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -300,9 +155,6 @@
 				ORGANIZATIONNAME = "Волохин Александр Сергеевич";
 				TargetAttributes = {
 					0F3B962622ECBBE400D65D6C = {
-						CreatedOnToolsVersion = 10.2.1;
-					};
-					0F3B96AC22ECC4D000D65D6C = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -321,7 +173,6 @@
 			projectRoot = "";
 			targets = (
 				0F3B962622ECBBE400D65D6C /* HelloSlowKit */,
-				0F3B96AC22ECC4D000D65D6C /* SlowKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -337,60 +188,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0F3B96AB22ECC4D000D65D6C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		522545310BD6FF66171927D9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SlowKitTests/Pods-SlowKitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SlowKit/SlowKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlowKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SlowKitTests/Pods-SlowKitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6C34FD79CD34321D92D02163 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SlowKitTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A8951182E1CA6594E5C7D49A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,40 +251,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0F3B96A922ECC4D000D65D6C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F3B96D122ECC4FB00D65D6C /* ContainerTests.Events.swift in Sources */,
-				0F3B96D322ECC4FB00D65D6C /* ContainerTests.ResolveByName.swift in Sources */,
-				0F3B96D022ECC4FB00D65D6C /* LogMock.swift in Sources */,
-				0F3B96CE22ECC4FB00D65D6C /* EventTests.swift in Sources */,
-				0F3B96D222ECC4FB00D65D6C /* ContainerTests.SimpleResolve.swift in Sources */,
-				0F3B96D522ECC4FB00D65D6C /* ContainerTests.Loging.swift in Sources */,
-				0F3B96DC22ECC4FB00D65D6C /* ViewControllerTests.swift in Sources */,
-				0F3B96D822ECC4FB00D65D6C /* ContainerTests.Retaining.swift in Sources */,
-				0F3B96DB22ECC4FB00D65D6C /* CommandsTests.UIButton.swift in Sources */,
-				0F3B96DA22ECC4FB00D65D6C /* CommandsTests.UISegmentedControl.swift in Sources */,
-				0F3B96CD22ECC4FB00D65D6C /* AssociatedObjectsTests.swift in Sources */,
-				0F3B96DD22ECC4FB00D65D6C /* NotificationServiceTests.swift in Sources */,
-				0F3B96CF22ECC4FB00D65D6C /* ContainerTestData.swift in Sources */,
-				0F3B96D422ECC4FB00D65D6C /* ContainerTests.RegisterAs.swift in Sources */,
-				0F3B970922ED605E00D65D6C /* ContainerExamples.swift in Sources */,
-				0F3B96D922ECC4FB00D65D6C /* MVVMTestData.swift in Sources */,
-				0F3B96D622ECC4FB00D65D6C /* ContainerTests.ContainsAndUnregister.swift in Sources */,
-				0F3B96D722ECC4FB00D65D6C /* ContainerTests.Shortcuts.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0F3B96B322ECC4D000D65D6C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0F3B962622ECBBE400D65D6C /* HelloSlowKit */;
-			targetProxy = 0F3B96B222ECC4D000D65D6C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0F3B963322ECBBE500D65D6C /* LaunchScreen.storyboard */ = {
@@ -654,44 +421,6 @@
 			};
 			name = Release;
 		};
-		0F3B96B522ECC4D000D65D6C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0D57EA9463BB76CB1C21B95 /* Pods-SlowKitTests.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3E2BV6MQLC;
-				INFOPLIST_FILE = SlowKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alexander.volokhin.SlowKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		0F3B96B622ECC4D000D65D6C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20320680BBD624AEFA3E7138 /* Pods-SlowKitTests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3E2BV6MQLC;
-				INFOPLIST_FILE = SlowKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alexander.volokhin.SlowKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -709,15 +438,6 @@
 			buildConfigurations = (
 				0F3B964522ECBBE500D65D6C /* Debug */,
 				0F3B964622ECBBE500D65D6C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0F3B96B422ECC4D000D65D6C /* Build configuration list for PBXNativeTarget "SlowKitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0F3B96B522ECC4D000D65D6C /* Debug */,
-				0F3B96B622ECC4D000D65D6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -4,7 +4,3 @@ platform :ios, '10.0'
 target 'HelloSlowKit' do
   pod 'SlowKit', :path => '../../'
 end
-
-target 'SlowKitTests' do
-  pod 'SlowKit', :path => '../../'
-end

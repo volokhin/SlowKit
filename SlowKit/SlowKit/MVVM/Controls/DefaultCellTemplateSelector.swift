@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 public final class DefaultCellTemplateSelector : ICellTemplateSelector {
 

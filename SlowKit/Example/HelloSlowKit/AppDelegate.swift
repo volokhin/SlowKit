@@ -5,7 +5,7 @@ import SlowKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	private let container = Container(log: ConsoleLog())
-	var window: UIWindow? = UIWindow()
+	var window: UIWindow?
 
 	override init() {
 		super.init()
@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		_ application: UIApplication,
 		willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+		self.window = UIWindow()
 		let root = self.container.resolve(HomeVC.self)
 		self.window?.rootViewController = root
 		self.window?.makeKeyAndVisible()

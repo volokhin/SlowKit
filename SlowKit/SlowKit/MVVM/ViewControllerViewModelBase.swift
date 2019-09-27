@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 open class ViewControllerViewModelBase : ViewModelBase {
 

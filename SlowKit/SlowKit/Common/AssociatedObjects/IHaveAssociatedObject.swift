@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 public protocol IHaveAssociatedObject: class {
 	func associatedObject<T>(for key: UnsafeRawPointer) -> T?
