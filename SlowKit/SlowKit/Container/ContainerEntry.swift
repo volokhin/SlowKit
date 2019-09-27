@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 internal class ContainerEntry<T> : IContainerEntry {
 
@@ -11,7 +11,7 @@ internal class ContainerEntry<T> : IContainerEntry {
 		}
 	}
 
-	internal var instanceFactory: ((IResolver) -> T?)?
+	internal var instanceFactory: ((IResolver, Any) -> T?)?
 	internal var instanceObject: Any?
 	internal var instanceScope: InstanceScope?
 
@@ -21,7 +21,7 @@ internal class ContainerEntry<T> : IContainerEntry {
 	internal var didResolve: [(Container, ContainerEntryKey, ContainerEntry<T>, T?) -> Void] = []
 	internal var didCreate: [(Container, ContainerEntryKey, ContainerEntry<T>, T?) -> Void] = []
 
-	internal func getInstance(key: ContainerEntryKey, container: Container) -> Any? {
+	internal func getInstance(key: ContainerEntryKey, container: Container, args: Any) -> Any? {
 		let instanceScope = self.instanceScope ?? .instancePerRequest
 		self.willResolve.forEach { f in f(container, key, self) }
 
@@ -33,7 +33,7 @@ internal class ContainerEntry<T> : IContainerEntry {
 			var instance: T? = nil
 
 			if let f = self.instanceFactory {
-				instance = f(container)
+				instance = f(container, args)
 			} else if let instanceWithInit = T.self as? IHaveEmptyInit.Type {
 				instance = instanceWithInit.init() as? T
 			} else {

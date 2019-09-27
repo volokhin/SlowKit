@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 protocol ISubscriberEntry {
 	var isAlive: Bool { get }

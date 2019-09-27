@@ -1,8 +1,8 @@
-import UIKit
+import Foundation
 
 open class ViewModelBase {
 
-	public var viewModelChanged: Event<Void> = Event()
+	public var viewModelChanged = Event<Void>()
 
 	public init() {
 

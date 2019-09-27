@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 public final class BindableCollection<Element> {
 
@@ -7,6 +7,8 @@ public final class BindableCollection<Element> {
 	public typealias Iterator = IndexingIterator<[Element]>
 
 	public let reloaded: Event<Void> = Event()
+	public let added: Event<Int> = Event()
+	public var replaced: Event<(range: Range<Int>, count: Int)> = Event()
 
 	private var storage: [Element] = []
 
@@ -60,6 +62,16 @@ public extension BindableCollection {
 	func reload(with storage: [Element]) {
 		self.storage = storage
 		self.reloaded.raise()
+	}
+
+	func append(contentsOf items: [Element]) {
+		self.storage.append(contentsOf: items)
+		self.added.raise(items.count)
+	}
+
+	func replaceSubrange(_ subrange: Range<Int>, with items: [Element]) {
+		self.storage.replaceSubrange(subrange, with: items)
+		self.replaced.raise((subrange, items.count))
 	}
 }
 

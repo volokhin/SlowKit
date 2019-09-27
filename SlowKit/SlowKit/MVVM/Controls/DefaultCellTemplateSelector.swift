@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 public final class DefaultCellTemplateSelector : ICellTemplateSelector {
 
@@ -27,7 +27,12 @@ public final class DefaultCellTemplateSelector : ICellTemplateSelector {
 
 	private func convertToCellTypeString(_ vmType: String) -> String? {
 		if vmType.hasSuffix("VM") {
-			return vmType.dropLast(2) + "Cell"
+			let result = String(vmType.dropLast(2))
+			if result.hasSuffix("Cell") {
+				return result
+			} else {
+				return result + "Cell"
+			}
 		} else {
 			return nil
 		}

@@ -19,15 +19,20 @@ public class BindableTableView : UIView {
 
 	public init() {
 		super.init(frame: .zero)
+		self.commonInit()
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		self.commonInit()
+	}
+
+	private func commonInit() {
 		self.backgroundColor = .clear
 		self.table.dataSource = self
 		self.table.delegate = self
 		self.table.register(UITableViewCell.self, forCellReuseIdentifier: "default")
 		self.addSubview(self.table)
-	}
-
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
 	}
 
 	public override func layoutSubviews() {
@@ -42,9 +47,21 @@ public class BindableTableView : UIView {
 
 	private func subscribe(to dataSource: IDataSource?) {
 		guard let dataSource = dataSource else { return }
+
 		dataSource.reloaded.subscribe(self) {
 			this in
 			this.table.reloadData()
+		}
+
+		dataSource.added.subscribe(self) {
+			this, count in
+			let itemsCount = this.table.numberOfRows(inSection: 0)
+			var indexes: [IndexPath] = []
+			for i in 0..<count {
+				let index = IndexPath(row: itemsCount + i, section: 0)
+				indexes.append(index)
+			}
+			this.table.insertRows(at: indexes, with: .automatic)
 		}
 	}
 }

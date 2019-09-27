@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 public class ContainerEntryBuilder<T> {
 
@@ -16,6 +16,13 @@ public class ContainerEntryBuilder<T> {
 
 	@discardableResult
 	public func withFactory(_ factory: @escaping (IResolver) -> T?) -> Self {
+		self.riseFactoryWarningIfNeeded()
+		self.associatedEntry.instanceFactory = { resolver, _ in factory(resolver) }
+		return self
+	}
+
+	@discardableResult
+	public func withFactory(_ factory: @escaping (IResolver, Any) -> T?) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = factory
 		return self
@@ -113,7 +120,7 @@ public class ContainerEntryBuilder<T> {
 	public func withInit(_ initializer: @escaping () -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			_ in
+			_,_ in
 			initializer()
 		}
 		return self
@@ -123,8 +130,8 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P>(_ initializer: @escaping (P) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer(resolver.resolve(P.self)!)
+			resolver, args in
+			initializer(resolver.contains(P.self) ? resolver.resolve(P.self)! : args as! P)
 		}
 		return self
 	}
@@ -133,9 +140,9 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2>(_ initializer: @escaping ((P1, P2)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2))
 		}
 		return self
 	}
@@ -144,10 +151,10 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3>(_ initializer: @escaping ((P1, P2, P3)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3))
 		}
 		return self
 	}
@@ -156,11 +163,11 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4>(_ initializer: @escaping ((P1, P2, P3, P4)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4))
 		}
 		return self
 	}
@@ -169,12 +176,12 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5>(_ initializer: @escaping ((P1, P2, P3, P4, P5)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5))
 		}
 		return self
 	}
@@ -183,13 +190,13 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5, P6>(_ initializer: @escaping ((P1, P2, P3, P4, P5, P6)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!,
-						 resolver.resolve(P6.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5,
+						 resolver.contains(P6.self) ? resolver.resolve(P6.self)! : args as! P6))
 		}
 		return self
 	}
@@ -198,14 +205,14 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5, P6, P7>(_ initializer: @escaping ((P1, P2, P3, P4, P5, P6, P7)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!,
-						 resolver.resolve(P6.self)!,
-						 resolver.resolve(P7.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5,
+						 resolver.contains(P6.self) ? resolver.resolve(P6.self)! : args as! P6,
+						 resolver.contains(P7.self) ? resolver.resolve(P7.self)! : args as! P7))
 		}
 		return self
 	}
@@ -214,15 +221,15 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5, P6, P7, P8>(_ initializer: @escaping ((P1, P2, P3, P4, P5, P6, P7, P8)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!,
-						 resolver.resolve(P6.self)!,
-						 resolver.resolve(P7.self)!,
-						 resolver.resolve(P8.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5,
+						 resolver.contains(P6.self) ? resolver.resolve(P6.self)! : args as! P6,
+						 resolver.contains(P7.self) ? resolver.resolve(P7.self)! : args as! P7,
+						 resolver.contains(P8.self) ? resolver.resolve(P8.self)! : args as! P8))
 		}
 		return self
 	}
@@ -231,16 +238,16 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5, P6, P7, P8, P9>(_ initializer: @escaping ((P1, P2, P3, P4, P5, P6, P7, P8, P9)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!,
-						 resolver.resolve(P6.self)!,
-						 resolver.resolve(P7.self)!,
-						 resolver.resolve(P8.self)!,
-						 resolver.resolve(P9.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5,
+						 resolver.contains(P6.self) ? resolver.resolve(P6.self)! : args as! P6,
+						 resolver.contains(P7.self) ? resolver.resolve(P7.self)! : args as! P7,
+						 resolver.contains(P8.self) ? resolver.resolve(P8.self)! : args as! P8,
+						 resolver.contains(P9.self) ? resolver.resolve(P9.self)! : args as! P9))
 		}
 		return self
 	}
@@ -249,17 +256,17 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(_ initializer: @escaping ((P1, P2, P3, P4, P5, P6, P7, P8, P9, P10)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!,
-						 resolver.resolve(P6.self)!,
-						 resolver.resolve(P7.self)!,
-						 resolver.resolve(P8.self)!,
-						 resolver.resolve(P9.self)!,
-						 resolver.resolve(P10.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5,
+						 resolver.contains(P6.self) ? resolver.resolve(P6.self)! : args as! P6,
+						 resolver.contains(P7.self) ? resolver.resolve(P7.self)! : args as! P7,
+						 resolver.contains(P8.self) ? resolver.resolve(P8.self)! : args as! P8,
+						 resolver.contains(P9.self) ? resolver.resolve(P9.self)! : args as! P9,
+						 resolver.contains(P10.self) ? resolver.resolve(P10.self)! : args as! P10))
 		}
 		return self
 	}
@@ -268,18 +275,18 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(_ initializer: @escaping ((P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!,
-						 resolver.resolve(P6.self)!,
-						 resolver.resolve(P7.self)!,
-						 resolver.resolve(P8.self)!,
-						 resolver.resolve(P9.self)!,
-						 resolver.resolve(P10.self)!,
-						 resolver.resolve(P11.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5,
+						 resolver.contains(P6.self) ? resolver.resolve(P6.self)! : args as! P6,
+						 resolver.contains(P7.self) ? resolver.resolve(P7.self)! : args as! P7,
+						 resolver.contains(P8.self) ? resolver.resolve(P8.self)! : args as! P8,
+						 resolver.contains(P9.self) ? resolver.resolve(P9.self)! : args as! P9,
+						 resolver.contains(P10.self) ? resolver.resolve(P10.self)! : args as! P10,
+						 resolver.contains(P11.self) ? resolver.resolve(P11.self)! : args as! P11))
 		}
 		return self
 	}
@@ -288,19 +295,19 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12>(_ initializer: @escaping ((P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!,
-						 resolver.resolve(P6.self)!,
-						 resolver.resolve(P7.self)!,
-						 resolver.resolve(P8.self)!,
-						 resolver.resolve(P9.self)!,
-						 resolver.resolve(P10.self)!,
-						 resolver.resolve(P11.self)!,
-						 resolver.resolve(P12.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5,
+						 resolver.contains(P6.self) ? resolver.resolve(P6.self)! : args as! P6,
+						 resolver.contains(P7.self) ? resolver.resolve(P7.self)! : args as! P7,
+						 resolver.contains(P8.self) ? resolver.resolve(P8.self)! : args as! P8,
+						 resolver.contains(P9.self) ? resolver.resolve(P9.self)! : args as! P9,
+						 resolver.contains(P10.self) ? resolver.resolve(P10.self)! : args as! P10,
+						 resolver.contains(P11.self) ? resolver.resolve(P11.self)! : args as! P11,
+						 resolver.contains(P12.self) ? resolver.resolve(P12.self)! : args as! P12))
 		}
 		return self
 	}
@@ -309,20 +316,20 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13>(_ initializer: @escaping ((P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!,
-						 resolver.resolve(P6.self)!,
-						 resolver.resolve(P7.self)!,
-						 resolver.resolve(P8.self)!,
-						 resolver.resolve(P9.self)!,
-						 resolver.resolve(P10.self)!,
-						 resolver.resolve(P11.self)!,
-						 resolver.resolve(P12.self)!,
-						 resolver.resolve(P13.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5,
+						 resolver.contains(P6.self) ? resolver.resolve(P6.self)! : args as! P6,
+						 resolver.contains(P7.self) ? resolver.resolve(P7.self)! : args as! P7,
+						 resolver.contains(P8.self) ? resolver.resolve(P8.self)! : args as! P8,
+						 resolver.contains(P9.self) ? resolver.resolve(P9.self)! : args as! P9,
+						 resolver.contains(P10.self) ? resolver.resolve(P10.self)! : args as! P10,
+						 resolver.contains(P11.self) ? resolver.resolve(P11.self)! : args as! P11,
+						 resolver.contains(P12.self) ? resolver.resolve(P12.self)! : args as! P12,
+						 resolver.contains(P13.self) ? resolver.resolve(P13.self)! : args as! P13))
 		}
 		return self
 	}
@@ -331,21 +338,21 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14>(_ initializer: @escaping ((P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!,
-						 resolver.resolve(P6.self)!,
-						 resolver.resolve(P7.self)!,
-						 resolver.resolve(P8.self)!,
-						 resolver.resolve(P9.self)!,
-						 resolver.resolve(P10.self)!,
-						 resolver.resolve(P11.self)!,
-						 resolver.resolve(P12.self)!,
-						 resolver.resolve(P13.self)!,
-						 resolver.resolve(P14.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5,
+						 resolver.contains(P6.self) ? resolver.resolve(P6.self)! : args as! P6,
+						 resolver.contains(P7.self) ? resolver.resolve(P7.self)! : args as! P7,
+						 resolver.contains(P8.self) ? resolver.resolve(P8.self)! : args as! P8,
+						 resolver.contains(P9.self) ? resolver.resolve(P9.self)! : args as! P9,
+						 resolver.contains(P10.self) ? resolver.resolve(P10.self)! : args as! P10,
+						 resolver.contains(P11.self) ? resolver.resolve(P11.self)! : args as! P11,
+						 resolver.contains(P12.self) ? resolver.resolve(P12.self)! : args as! P12,
+						 resolver.contains(P13.self) ? resolver.resolve(P13.self)! : args as! P13,
+						 resolver.contains(P14.self) ? resolver.resolve(P14.self)! : args as! P14))
 		}
 		return self
 	}
@@ -354,22 +361,22 @@ public class ContainerEntryBuilder<T> {
 	public func withInit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15>(_ initializer: @escaping ((P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15)) -> T) -> Self {
 		self.riseFactoryWarningIfNeeded()
 		self.associatedEntry.instanceFactory = {
-			resolver in
-			initializer((resolver.resolve(P1.self)!,
-						 resolver.resolve(P2.self)!,
-						 resolver.resolve(P3.self)!,
-						 resolver.resolve(P4.self)!,
-						 resolver.resolve(P5.self)!,
-						 resolver.resolve(P6.self)!,
-						 resolver.resolve(P7.self)!,
-						 resolver.resolve(P8.self)!,
-						 resolver.resolve(P9.self)!,
-						 resolver.resolve(P10.self)!,
-						 resolver.resolve(P11.self)!,
-						 resolver.resolve(P12.self)!,
-						 resolver.resolve(P13.self)!,
-						 resolver.resolve(P14.self)!,
-						 resolver.resolve(P15.self)!))
+			resolver, args in
+			initializer((resolver.contains(P1.self) ? resolver.resolve(P1.self)! : args as! P1,
+						 resolver.contains(P2.self) ? resolver.resolve(P2.self)! : args as! P2,
+						 resolver.contains(P3.self) ? resolver.resolve(P3.self)! : args as! P3,
+						 resolver.contains(P4.self) ? resolver.resolve(P4.self)! : args as! P4,
+						 resolver.contains(P5.self) ? resolver.resolve(P5.self)! : args as! P5,
+						 resolver.contains(P6.self) ? resolver.resolve(P6.self)! : args as! P6,
+						 resolver.contains(P7.self) ? resolver.resolve(P7.self)! : args as! P7,
+						 resolver.contains(P8.self) ? resolver.resolve(P8.self)! : args as! P8,
+						 resolver.contains(P9.self) ? resolver.resolve(P9.self)! : args as! P9,
+						 resolver.contains(P10.self) ? resolver.resolve(P10.self)! : args as! P10,
+						 resolver.contains(P11.self) ? resolver.resolve(P11.self)! : args as! P11,
+						 resolver.contains(P12.self) ? resolver.resolve(P12.self)! : args as! P12,
+						 resolver.contains(P13.self) ? resolver.resolve(P13.self)! : args as! P13,
+						 resolver.contains(P14.self) ? resolver.resolve(P14.self)! : args as! P14,
+						 resolver.contains(P15.self) ? resolver.resolve(P15.self)! : args as! P15))
 		}
 		return self
 	}

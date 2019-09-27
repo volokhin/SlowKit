@@ -14,6 +14,7 @@ public class BindableCollectionView : UIView {
 	}
 
 	public let firstCellWillLoad: Event<Void> = Event()
+	public let scrollViewDidScroll: Event<UIScrollView> = Event()
 
 	private var registeredTemplates: Set<AnyCellTemplate> = []
 	private var isFirstCellLoaded: Bool = false
@@ -21,14 +22,21 @@ public class BindableCollectionView : UIView {
 	public init(layout: UICollectionViewLayout) {
 		self.collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
 		super.init(frame: .zero)
-		self.backgroundColor = .clear
-		self.collection.dataSource = self
-		self.collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "default")
-		self.addSubview(self.collection)
+		self.commonInit()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+		self.collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+		super.init(coder: aDecoder)
+		self.commonInit()
+	}
+
+	private func commonInit() {
+		self.backgroundColor = .clear
+		self.collection.dataSource = self
+		self.collection.delegate = self
+		self.collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "default")
+		self.addSubview(self.collection)
 	}
 
 	public override func layoutSubviews() {
@@ -43,9 +51,29 @@ public class BindableCollectionView : UIView {
 
 	private func subscribe(to dataSource: IDataSource?) {
 		guard let dataSource = dataSource else { return }
+
 		dataSource.reloaded.subscribe(self) {
 			this in
 			this.collection.reloadData()
+		}
+
+		dataSource.added.subscribe(self) {
+			this, count in
+			let startIndex = this.collection.numberOfItems(inSection: 0)
+			let idsToAdd = (0..<count).map { IndexPath(row: startIndex + $0, section: 0) }
+			this.collection.insertItems(at: idsToAdd)
+		}
+
+		dataSource.replaced.subscribe(self) {
+			this, args in
+			let startIndex = args.range.startIndex
+			let idsToDelete = args.range.map { IndexPath(row: $0, section: 0) }
+			let idsToAdd = (0..<args.count).map { IndexPath(row: startIndex + $0, section: 0) }
+			this.collection.performBatchUpdates({
+				this.collection.deleteItems(at: idsToDelete)
+				this.collection.insertItems(at: idsToAdd)
+
+			}, completion: nil)
 		}
 	}
 }
@@ -83,5 +111,21 @@ extension BindableCollectionView : UICollectionViewDataSource {
 		template.register(in: collectionView)
 		self.registeredTemplates.insert(template)
 	}
+}
 
+extension BindableCollectionView : UICollectionViewDelegateFlowLayout {
+
+	public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		return collectionView.bounds.size
+	}
+
+	public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+		if let dataSource = self.dataSource, let item = dataSource.item(at: indexPath.row) as? CellViewModelBase {
+			item.willDisplay()
+		}
+	}
+
+	public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		self.scrollViewDidScroll.raise(scrollView)
+	}
 }

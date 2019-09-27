@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 public class Container : NSObject, IContainer {
 
@@ -6,11 +6,13 @@ public class Container : NSObject, IContainer {
 
 	public override init() {
 		super.init()
+		self.registerServices()
 	}
 
 	public init(log: ILog) {
 		super.init()
 		Logger.initialize(log: log)
+		self.registerServices()
 	}
 
 	@discardableResult
@@ -29,12 +31,22 @@ public class Container : NSObject, IContainer {
 
 	public func resolve<T>(_ instanceType: T.Type) -> T? {
 		let key = ContainerEntryKey(instanceType: T.self)
-		return self.resolveAndCast(T.self, key: key)
+		return self.resolveAndCast(T.self, key: key, args: ())
 	}
 
 	public func resolve<T>(_ instanceType: T.Type, name: String) -> T? {
 		let key = ContainerEntryKey(instanceType: T.self, name: name)
-		return self.resolveAndCast(T.self, key: key)
+		return self.resolveAndCast(T.self, key: key, args: ())
+	}
+
+	public func resolve<T: INeedArguments>(_ instanceType: T.Type, args: T.Arguments) -> T? {
+		let key = ContainerEntryKey(instanceType: T.self)
+		return self.resolveAndCast(T.self, key: key, args: args)
+	}
+
+	public func resolve<T: INeedArguments>(_ instanceType: T.Type, name: String, args: T.Arguments) -> T? {
+		let key = ContainerEntryKey(instanceType: T.self, name: name)
+		return self.resolveAndCast(T.self, key: key, args: args)
 	}
 
 	public func unregister<T>(_ instanceType: T.Type) {
@@ -58,19 +70,25 @@ public class Container : NSObject, IContainer {
 	}
 
 	internal func contains(_ key: ContainerEntryKey)  -> Bool {
+		if key.instanceType is IContainerAutoCreate.Type {
+			return true
+		}
 		let entry = self.registrations[key]
 		return entry != nil
 	}
 
-	internal func resolve(key: ContainerEntryKey) -> Any? {
+	internal func resolve(key: ContainerEntryKey, args: Any) -> Any? {
 		guard let entry = self.entry(by: key) else {
 			return nil
 		}
-		return entry.getInstance(key: key, container: self)
+		return entry.getInstance(key: key, container: self, args: args)
 	}
 
-	private func resolveAndCast<T>(_ instanceType: T.Type, key: ContainerEntryKey) -> T? {
-		guard let instance = self.resolve(key: key) else { return nil }
+	private func resolveAndCast<T>(_ instanceType: T.Type, key: ContainerEntryKey, args: Any) -> T? {
+		if let autocreatable = instanceType as? IContainerAutoCreate.Type {
+			return autocreatable.init(resolver: self) as? T
+		}
+		guard let instance = self.resolve(key: key, args: args) else { return nil }
 		guard let result = instance as? T else {
 			Logger.warning(Messages.invalidCast(source: type(of: instance), destination: T.self))
 			return nil
@@ -79,11 +97,19 @@ public class Container : NSObject, IContainer {
 	}
 
 	private func entry(by key: ContainerEntryKey) -> IContainerEntry? {
-		guard let entry = self.registrations[key] else {
+		if let entry = self.registrations[key]  {
+			return entry
+		} else {
 			Logger.warning(Messages.unregisteredKey(key: key))
 			return nil
 		}
-		return entry
+	}
+
+	private func registerServices() {
+		self.register(IPresenterService.self)
+			.singleInstance()
+			.withFactory { _ in PresenterService(container: self) }
+		self.register(IContainerAutoCreate.self)
 	}
 
 }

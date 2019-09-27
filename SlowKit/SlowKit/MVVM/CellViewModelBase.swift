@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 open class CellViewModelBase : ViewModelBase {
 
@@ -7,6 +7,10 @@ open class CellViewModelBase : ViewModelBase {
 	}
 
 	open func didSelect() {
+
+	}
+	
+	open func willDisplay() {
 
 	}
 }

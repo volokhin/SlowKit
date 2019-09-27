@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 public protocol ILog {
 	func info(_ message: String)
