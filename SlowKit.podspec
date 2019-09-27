@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name = 'SlowKit'
-s.version = '0.0.1'
+s.version = '0.0.2'
 s.swift_version = '5.0'
 s.summary = 'Simple framework for fast iOS MVVM development'
 s.homepage = 'https://github.com/volokhin/SlowKit'
